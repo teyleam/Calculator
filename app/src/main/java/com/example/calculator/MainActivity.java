@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,6 +62,63 @@ public class MainActivity extends AppCompatActivity {
                 mBvResult.setText("Result: " + result);
                 }
 
+        });
+
+
+        mBtnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String textNumber1 = mTxtInputEdtNumber1.getText().toString();
+                String textNumber2 = mTxtInputEdtNumber2.getText().toString();
+
+                if(textNumber1.isEmpty()||textNumber2.isEmpty()){
+                    Toast.makeText(MainActivity.this,"Invalid input",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int number1 = Integer.parseInt(textNumber1);
+                int number2 = Integer.parseInt(textNumber2);
+
+                int result = number1 - number2;
+                mBvResult.setText("Result: " +result);
+            }
+
+        });
+        mBtnMul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textNumber1 = mTxtInputEdtNumber1.getText().toString();
+                String textNumber2 = mTxtInputEdtNumber2.getText().toString();
+
+                if(textNumber1.isEmpty()||textNumber2.isEmpty()){
+                    Toast.makeText(MainActivity.this,"Invalid input", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                int number1 = Integer.parseInt(textNumber1);
+                int number2 = Integer.parseInt(textNumber2);
+                int result = number1 * number2;
+
+                mBvResult.setText("Result: " + result);
+            }
+        });
+
+        mBtnDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textNumber1 = mTxtInputEdtNumber1.getText().toString();
+                String textNumber2 = mTxtInputEdtNumber2.getText().toString();
+
+                if(textNumber1.isEmpty()||textNumber2.isEmpty()){
+                    Toast.makeText(MainActivity.this,"Invalid",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                int number1 = Integer.parseInt(textNumber1);
+                int number2 = Integer.parseInt(textNumber2);
+
+                int result = number1 / number2;
+                mBvResult.setText("Result: " + result);
+            }
         });
     }
 }
