@@ -12,9 +12,13 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.text.DecimalFormat;
 import java.util.logging.Logger;
 
 public class MainActivity extends AppCompatActivity {
+
+
+
     //1: Khai bao cac view de khai thac
     TextInputEditText mTxtInputEdtNumber1, mTxtInputEdtNumber2;
     TextView mBvResult;
@@ -113,11 +117,16 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"Invalid",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                int number1 = Integer.parseInt(textNumber1);
-                int number2 = Integer.parseInt(textNumber2);
+                float number1 = Float.parseFloat(textNumber1);
+                float number2 = Float.parseFloat(textNumber2);
 
-                int result = number1 / number2;
-                mBvResult.setText("Result: " + result);
+                if(number2==0){
+                    Toast.makeText(MainActivity.this,"Invalid values",Toast.LENGTH_SHORT).show();
+                }
+                float result = (number1 / number2);
+                DecimalFormat df = new DecimalFormat("#.##");
+                mBvResult.setText("Result: " + df.format(result));
+
             }
         });
     }
