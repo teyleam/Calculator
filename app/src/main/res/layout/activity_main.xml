@@ -110,7 +110,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout2"
-        android:text="Result :"
+        tools:text="Result :"
         android:textSize="40dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="20dp"
